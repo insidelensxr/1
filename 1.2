@@ -1,0 +1,22 @@
+use myDatabase; 
+ 
+db.createCollection("transactions"); 
+ 
+db.transactions.insertOne({"ID":"1","Name":"Somu","payment":{"Total":600},"transaction":{"Price
+ ":600}}); 
+db.transactions.insertOne({"ID":"2","Name":"Ravi","payment":{"Total":400},"transaction":{"Price
+ ":400}}); 
+db.transactions.insertOne({"ID":"3","Name":"Bhuvan","payment":{"Total":320.50},"transaction":{"
+ Price":320.50}}); 
+ 
+db.transactions.find({ "Name": "Somu" }); 
+ 
+db.transactions.find({ "payment.Total": 600 }); 
+ 
+db.transactions.find({ "transaction.Price": { $gte: 300, $lte: 500 } }); 
+ 
+db.transactions.aggregate([{$group:{ 
+        _id: null, 
+        totalAmount: { $sum: "$payment.Total" } 
+      } 
+    }]); 
