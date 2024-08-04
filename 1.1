@@ -1,0 +1,63 @@
+[ 
+    { 
+      "ID": "1", 
+      "Name": "Somu", 
+      "payment": { 
+        "Total": 150.75 
+      }, 
+      "transaction": { 
+        "Price": 150.75 
+      } 
+    }, 
+    { 
+      "ID": "2", 
+      "Name": "Ravi", 
+      "payment": { 
+        "Total": 200.00 
+      }, 
+      "transaction": { 
+        "Price": 200.00 
+      } 
+    }, 
+    { 
+      "ID": "3", 
+      "Name": "Somu", 
+      "payment": { 
+        "Total": 320.50 
+      }, 
+      "transaction": { 
+        "Price": 320.50 
+      } 
+    } 
+  ] 
+ 
+2.transaction_upsert.json 
+[ 
+    { 
+      "ID": "3",  
+      "Name": "Anusha", 
+      "payment": { 
+        "Total": 75.25 
+      }, 
+      "transaction": { 
+        "Price": 75.25 
+      } 
+    }, 
+    { 
+      "ID": "4", 
+      "Name": "Bhuvan", 
+      "payment": { 
+        "Total": 500.00 
+      }, 
+      "transaction": { 
+        "Price": 500.00 
+      } 
+    } 
+  ] 
+
+
+  use myDatabase; 
+ 
+db.transactions.drop() //If it already exists 
+ 
+db.createCollection("transactions");
